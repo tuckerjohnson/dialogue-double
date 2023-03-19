@@ -1,7 +1,18 @@
 SynthDef.new(\playback,
 	{
-		arg buf, out, start;
+		arg buf, out, start=0;
+		var a, b, c, d, e, f;
+		buf.postln;
+		#a, b, c, d, e, f, g = PlayBuf.ar(6, buf, BufRateScale.kr(buf), 1, start, 0, 2);
+		Out.ar(out, [a, b, c, d, e, f]);
+	}
+).add;
+
+SynthDef.new(\playback_s,
+	{
+		arg buf, out, start=0;
 		var a, b, c, d, e, f, g;
+		buf.postln;
 		#a, b, c, d, e, f, g = PlayBuf.ar(7, buf, BufRateScale.kr(buf), 1, start, 0, 2);
 		Out.ar(out, [a, b, c, d, e, f, g]);
 	}
@@ -25,5 +36,15 @@ SynthDef.new(\stereo,
 			]
 		);
 		Out.ar(out, mix);
+	}
+).add;
+
+SynthDef.new(\hex,
+	{
+		arg in, out=0, amp=0.5, amp_os=0.1;
+		var a, b, c, d, e, f, g;
+		#a, b, c, d, e, f, g = amp * In.ar(in, 7);
+		g = g * amp_os;
+		Out.ar(out, [a, b, c, d, e, f, g]);
 	}
 ).add;
