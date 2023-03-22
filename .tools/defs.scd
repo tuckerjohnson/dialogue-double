@@ -1,19 +1,19 @@
 SynthDef.new(\playback,
 	{
-		arg buf, out, start=0;
+		arg buf, out, start=0, amp=1;
 		var a, b, c, d, e, f;
 		buf.postln;
-		#a, b, c, d, e, f, g = PlayBuf.ar(6, buf, BufRateScale.kr(buf), 1, start, 0, 2);
+		#a, b, c, d, e, f, g = PlayBuf.ar(6, buf, BufRateScale.kr(buf), 1, start, 0, 2) * amp;
 		Out.ar(out, [a, b, c, d, e, f]);
 	}
 ).add;
 
 SynthDef.new(\playback_s,
 	{
-		arg buf, out, start=0;
+		arg buf, out, start=0, amp=1;
 		var a, b, c, d, e, f, g;
 		buf.postln;
-		#a, b, c, d, e, f, g = PlayBuf.ar(7, buf, BufRateScale.kr(buf), 1, start, 0, 2);
+		#a, b, c, d, e, f, g = PlayBuf.ar(7, buf, BufRateScale.kr(buf), 1, start, 0, 2) * amp;
 		Out.ar(out, [a, b, c, d, e, f, g]);
 	}
 ).add;
