@@ -2,7 +2,7 @@ Server.default.options.numOutputBusChannels_(7);
 Server.default.options.memSize_(2.pow(20));
 
 
-~one_lev = 1;
+~one_lev = 1.1;
 ~two_lev = 1;
 ~thr_lev = 1;
 ~fou_lev = 1;
